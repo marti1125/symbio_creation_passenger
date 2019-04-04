@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'home.dart';
+import 'product.dart';
 
 class PassengerApp extends StatelessWidget {
 
@@ -11,7 +12,8 @@ class PassengerApp extends StatelessWidget {
       home: HomePage(),
       initialRoute: '/home',
       routes: {
-        '/home' : (context) => HomePage(),
+        '/home'    : (context) => HomePage(),
+        '/product' : (context) => ProductPage(),
       },
       onGenerateRoute: _getRoute,
     );

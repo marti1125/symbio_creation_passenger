@@ -12,8 +12,6 @@ class _HomePageState extends State<HomePage> {
 
   final LatLng _center = const LatLng(-8.3791500, -74.5538700);
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,12 +50,21 @@ class _HomePageState extends State<HomePage> {
     controller.addMarker(
       MarkerOptions(
         position: _center,
-        infoWindowText: InfoWindowText('Invernadero 1', 'Productos agricolas'),
+        infoWindowText: InfoWindowText('Hacienda 1', 'Productos agricolas'),
         icon: BitmapDescriptor.fromAsset('assets/inver3.png', ),
         //icon: BitmapDescriptor.defaultMarker,
       ),
     );
 
+    controller.onMarkerTapped.add(_onMarkerTapped);
+
+  }
+
+  _onMarkerTapped(Marker marker) {
+    print(marker.options.infoWindowText.title);
+    print(marker.id);
+    print("moving... to another page");
+    Navigator.pushNamed(context, '/product');
   }
 
 }
